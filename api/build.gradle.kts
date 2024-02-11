@@ -16,4 +16,10 @@ dependencies {
     testImplementation("io.mockk:mockk:1.12.0")
     runtimeOnly("com.h2database:h2")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.+") //mapper 관련
+
+    // AOP
+    implementation("org.springframework.boot:spring-boot-starter-aop")
+
+    // Logging - 코틀린 로그 라이브러리 - 지연연산 가능!
+    implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
 }
