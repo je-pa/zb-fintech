@@ -1,0 +1,2 @@
+### user_info by userKey
+GET http://localhost:8080/fintech/api/v1/test/get/12345
