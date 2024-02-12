@@ -23,4 +23,7 @@ dependencies {
 
     // Logging - 코틀린 로그 라이브러리 - 지연연산 가능!
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
+
+    // Redis
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
 }

@@ -13,3 +13,6 @@ Content-Type: application/json
   "userName": "박지은1",
   "userIncomeAmount": "10000000"
 }
+
+###
+GET http://localhost:80/fintech/api/v1/review/123
