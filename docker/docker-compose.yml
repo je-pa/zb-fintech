@@ -1,0 +1,25 @@
+version: '2'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka:2.12-2.5.0
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+# api 서버에서 심사요청을 kafka로 보내고
+# consumer에서 해당 토픽을 받아 메시지를 consumer하고
+# css 모듈로 심사를 보낼 것 이다.
+# 스프링에서 kafka를 접속할 수 있도록 설정을 해주고 kafka로 명령어를 보내는 프로듀서를 만들것이다.
+# - api 서버에서 메시지를 프로듀서
+# - consumer 모듈
+# 토픽이 생성될 때 마다 컨슈머가 컨슈머해서 css 쪽으로 순차적으로 심사를 보낼것
+# 심사후에는 심사데이터를 넣어줄 것이다.

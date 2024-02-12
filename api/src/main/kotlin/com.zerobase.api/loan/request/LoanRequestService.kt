@@ -11,5 +11,5 @@ interface LoanRequestService {
         userInfoDto: UserInfoDto
     ): UserInfo
 
-//    fun loanRequestReview(userInfoDto: UserInfoDto)
+    fun loanRequestReview(userInfoDto: UserInfoDto)
 }
