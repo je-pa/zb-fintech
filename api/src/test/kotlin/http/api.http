@@ -2,4 +2,4 @@
 GET http://localhost:8080/fintech/api/v1/test/get/12345
 
 ### 대출 리뷰 getReviewData-LoanReviewController
-GET http://localhost:8080/fintech/api/v1/review/123
+GET http://localhost:8080/fintech/api/v1/review/1234

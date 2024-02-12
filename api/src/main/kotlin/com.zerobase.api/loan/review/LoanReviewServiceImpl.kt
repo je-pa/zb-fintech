@@ -1,7 +1,7 @@
 package com.zerobase.api.loan.review
 
-//import com.zerobase.api.exception.CustomErrorCode
-//import com.zerobase.api.exception.CustomException
+import com.zerobase.api.exception.CustomErrorCode
+import com.zerobase.api.exception.CustomException
 import com.zerobase.domain.domain.LoanReview
 import com.zerobase.domain.repository.LoanReviewRepository
 import org.springframework.cache.annotation.Cacheable
