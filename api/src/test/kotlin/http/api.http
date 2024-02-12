@@ -1,5 +1,15 @@
 ### user_info by userKey
-GET http://localhost:8080/fintech/api/v1/test/get/12345
+GET http://localhost:80/fintech/api/v1/test/get/12345
 
 ### 대출 리뷰 getReviewData-LoanReviewController
-GET http://localhost:8080/fintech/api/v1/review/1234
+GET http://localhost:80/fintech/api/v1/review/1234
+
+###
+POST http://localhost:80/fintech/api/v1/request
+Content-Type: application/json
+
+{
+  "userRegistrationNumber": "195254621556",
+  "userName": "박지은1",
+  "userIncomeAmount": "10000000"
+}
