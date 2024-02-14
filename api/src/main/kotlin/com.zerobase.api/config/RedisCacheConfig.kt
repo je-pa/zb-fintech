@@ -18,6 +18,7 @@ import java.time.Duration
 class RedisCacheConfig {
 
     @Bean
+    // Could not autowire. No beans of 'RedisConnectionFactory' type found. 여기 이게 뜨는데 왜뜨는지 모르겠습니다..
     fun redisCacheManager(cacheFactory: RedisConnectionFactory): CacheManager {
         val redisCacheConfig = RedisCacheConfiguration.defaultCacheConfig()
                 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(StringRedisSerializer()))
