@@ -1,6 +1,4 @@
-docker network create redis-net5
-
-docker run --name fintech-redis5 \
+docker run --name fintech-redis \
              -p 6379:6379 \
-             --network redis-net5 \
+             --network docker_fintech \
              -d redis:latest

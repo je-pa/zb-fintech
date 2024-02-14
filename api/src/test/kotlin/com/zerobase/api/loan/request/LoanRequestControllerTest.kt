@@ -6,6 +6,7 @@ import com.zerobase.api.loan.GenerateKey
 import com.zerobase.api.loan.encrypt.EncryptComponent
 import com.zerobase.domain.domain.UserInfo
 import com.zerobase.domain.repository.UserInfoRepository
+import com.zerobase.kafka.producer.LoanRequestSender
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.BeforeEach
@@ -29,6 +30,8 @@ internal class LoanRequestControllerTest {
 
     private lateinit var encryptComponent: EncryptComponent
 
+    private lateinit var requestSender: LoanRequestSender
+
     private val userInfoRepository: UserInfoRepository = mockk()
 
     private lateinit var mapper: ObjectMapper
@@ -47,7 +50,7 @@ internal class LoanRequestControllerTest {
         encryptComponent = EncryptComponent()
 
         loanRequestServiceImpl = LoanRequestServiceImpl(
-                generateKey, userInfoRepository, encryptComponent
+                generateKey, userInfoRepository, encryptComponent, requestSender
         )
 
         loanRequestController = LoanRequestController(loanRequestServiceImpl)
