@@ -5,6 +5,8 @@ services:
     container_name: zookeeper
     ports:
       - "2181:2181"
+    networks:
+      - fintech
   kafka:
     image: wurstmeister/kafka:2.12-2.5.0
     container_name: kafka
@@ -15,6 +17,40 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - fintech
+  api:
+    image: api:1.0.1
+    container_name: api
+    ports:
+      - "80:80"
+    networks:
+      - fintech
+  consumer:
+    image: consumer:1.0.1
+    container_name: consumer
+    ports:
+      - "8080:8080"
+    networks:
+      - fintech
+  css:
+    image: css:1.0.1
+    container_name: css
+    ports:
+      - "8081:8081"
+    networks:
+      - fintech
+  nginx:
+    image: nginx:1.0.1
+    container_name: nginx
+    ports:
+      - "8085:8085"
+    networks:
+      - fintech
+
+networks:
+  fintech:
+    driver: bridge
 # api 서버에서 심사요청을 kafka로 보내고
 # consumer에서 해당 토픽을 받아 메시지를 consumer하고
 # css 모듈로 심사를 보낼 것 이다.
