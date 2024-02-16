@@ -2,15 +2,18 @@ spring:
   jpa:
     generate-ddl: false
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: false
     hibernate:
       ddl-auto: validate
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # 대소문자 구분
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://fintech-mysql:3307/fintech?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://localhost:3306/fintech?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
     username: fintech
-    password: zerobase
+    password: fintech
   redis:
     host: fintech-redis
     port: 6379
